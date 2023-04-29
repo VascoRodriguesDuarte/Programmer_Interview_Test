@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ItemInventory : MonoBehaviour
 {
-    private PlayerManager player;
-    private List<bool> inventory;
     [SerializeField] private GameObject equipButton;
     [SerializeField] private GameObject unequipButton;
+
+    private PlayerManager player;
+    private List<bool> inventory;
     private Item itemData;
 
     private void Start()

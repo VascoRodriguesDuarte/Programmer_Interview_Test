@@ -39,16 +39,6 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    public void PublicInteractionState(bool value, bool inShop)
-    {
-        InteractionState(value, inShop);
-    }
-
-    public void PublicPrepareShop(Interact shop)
-    {
-        PrepareShop(shop);
-    }
-
     private void PrepareShop(Interact shop)
     {
         isShop = true;
@@ -60,5 +50,15 @@ public class InteractionManager : MonoBehaviour
             instance.GetComponent<Transform>().GetChild(1).GetComponent<TMP_Text>().text = item.name;
             instance.GetComponent<Transform>().GetChild(2).GetComponent<TMP_Text>().text = item.buy + " coins";
         }
+    }
+
+    public void PublicInteractionState(bool value, bool inShop)
+    {
+        InteractionState(value, inShop);
+    }
+
+    public void PublicPrepareShop(Interact shop)
+    {
+        PrepareShop(shop);
     }
 }
