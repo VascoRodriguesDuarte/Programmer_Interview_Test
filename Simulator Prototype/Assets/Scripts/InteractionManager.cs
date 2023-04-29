@@ -4,18 +4,20 @@ using UnityEngine.UI;
 
 public class InteractionManager : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement player;
+    [SerializeField] private PlayerManager player;
     [SerializeField] private GameObject shopUI;
     [SerializeField] private GameObject template;
-    public GameObject textBox;
+    [SerializeField] private GameObject textBox;
+
     private bool isShop;
-    private Interact currentInteract;
+
     public TMP_Text mainText;
 
     private void InteractionState(bool value, bool inShop)
     {
         if(value)
         {
+            textBox.gameObject.SetActive(true);
             player.PublicMovementWhileInteracting(value, inShop, this);
         }
         else

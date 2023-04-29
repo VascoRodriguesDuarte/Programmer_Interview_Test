@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractCheck : MonoBehaviour
 {
     [SerializeField] private Interact currentObject;
-    [SerializeField] private PlayerMovement player;
+    [SerializeField] private PlayerManager player;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

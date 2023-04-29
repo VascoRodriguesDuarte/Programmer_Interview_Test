@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInventory : MonoBehaviour
 {
-    private PlayerMovement player;
+    private PlayerManager player;
     private List<bool> inventory;
     [SerializeField] private GameObject equipButton;
     [SerializeField] private GameObject unequipButton;
@@ -12,7 +12,7 @@ public class ItemInventory : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        player = GameObject.Find("Player").GetComponent<PlayerManager>();
         itemData = gameObject.GetComponent<ItemData>().item;
         
         List<Item> itemList = player.PublicCheckEquipItem();

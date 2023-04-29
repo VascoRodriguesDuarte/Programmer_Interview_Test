@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private Transform cameraObject;
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject inventoryBox;
     [SerializeField] private Transform[] hatPos;
     [SerializeField] private Transform[] shoesPos;
+    [SerializeField] private GameObject tutoText;
     
     private Rigidbody2D rb;
     private Vector2 moveDirection;
@@ -25,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isShop = false;
     private List<Item> equipedItems;
 
-    public PlayerInput p1;
     public int coins;
     public bool isInteracting = false;
 
@@ -197,11 +197,12 @@ public class PlayerMovement : MonoBehaviour
 
     private List<Item> CheckEquipItem()
     {
-        foreach(Item item in equipedItems)
-        {
-            Debug.Log(item.name);
-        }
         return equipedItems;
+    }
+
+    private void TutoText()
+    {
+        tutoText.SetActive(!tutoText.activeSelf);
     }
 
 /*--------------------------------------------------------------------------------------------------*/
@@ -219,6 +220,14 @@ public class PlayerMovement : MonoBehaviour
         if(context.phase == InputActionPhase.Performed)
         {
             Interact();
+        }
+    }
+
+    public void PublicTutoText(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            TutoText();
         }
     }
 

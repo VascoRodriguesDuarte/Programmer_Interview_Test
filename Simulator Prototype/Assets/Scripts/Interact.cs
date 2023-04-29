@@ -8,13 +8,11 @@ public class Interact : MonoBehaviour
     [SerializeField] private Item[] items;
 
     private InteractionManager manager;
-    private GameObject textInterface;
     private TMP_Text textMesh;
 
     private void Start()
     {
         manager = this.gameObject.GetComponentInParent<InteractionManager>();
-        textInterface = manager.textBox;
         textMesh = manager.mainText;
     }
 
@@ -28,22 +26,16 @@ public class Interact : MonoBehaviour
         {
             ShopOpen();
         }
-        else
-        {
-            //TBD
-        }
     }
 
     private void TextInteract()
     {
-        textInterface.gameObject.SetActive(true);
         textMesh.text = text;
         manager.PublicInteractionState(true, false);
     }
 
     private void ShopOpen()
     {
-        textInterface.gameObject.SetActive(true);
         textMesh.text = text;
         manager.PublicInteractionState(true, true);
         manager.PublicPrepareShop(this);

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ItemShop : MonoBehaviour
 {
-    private PlayerMovement player;
+    private PlayerManager player;
 
     private void Start()
     {
-       player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+       player = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     private void ItemBuy(Item item)
